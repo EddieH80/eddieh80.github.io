@@ -9,7 +9,7 @@ export const siteConfig = {
     github: "https://github.com/EddieH80",
   },
   aboutMe:
-    "I am currently a graduate student at the University of Chicago studying Applied Data Science. After graduating from the University of Pennsylvania in 2022, I worked at InterSystems, a data technology company, where I performed software testing for healthcare-related products. I have interests in agentic AI workflows, computer graphics, competitive e-sports, rock-climbing, and running.",
+    "Hello, my name is Eddie and I'm currently a graduate student at the University of Chicago studying Applied Data Science. After graduating from the University of Pennsylvania in 2022, I worked at InterSystems, a data technology company, where I performed software testing for healthcare-related products. I have interests in agentic AI workflows, computer graphics, competitive e-sports, rock-climbing, and running.",
   skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "CI/CD"],
   projects: [
     {
