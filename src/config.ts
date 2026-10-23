@@ -3,6 +3,9 @@ import pathTracerImage from "./assets/path-tracer.png";
 import daoTFTImage from "./assets/dao-tft.png";
 import fabricClusteringImage from "./assets/fabric-composition-clustering.png";
 import miniMinecraftImage from "./assets/mini-minecraft.png";
+import uChicagoImage from "./assets/uchicago.webp";
+import uPennImage from "./assets/upenn.jpg";
+import interSystemsImage from "./assets/intersystems.avif";
 
 export const siteConfig = {
   profileImage,
@@ -16,7 +19,7 @@ export const siteConfig = {
     github: "https://github.com/EddieH80",
   },
   aboutMe:
-    "Hello, thanks for stopping by! My name is Eddie and I'm currently a graduate student at the University of Chicago studying Applied Data Science. " +
+    "Thanks for stopping by! My name is Eddie and I'm currently a graduate student in the University of Chicago's Master's in Applied Data Science program. " +
     "I have interests in agentic AI workflows, computer graphics, competitive e-sports, rock-climbing, and running.",
   skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "CI/CD"],
   projects: [
@@ -65,6 +68,7 @@ export const siteConfig = {
         "Developed upgrade tests for systems migrating from legacy storage to new data models to ensure data integrity",
         "Documented and maintained 10+ Confluence pages about internal testing frameworks to improve cross-team communication and reduce new-hire onboarding time"
       ],
+      image: interSystemsImage,
     },
     {
       company: "University of Pennsylvania",
@@ -74,6 +78,7 @@ export const siteConfig = {
         "Helped students sign up for house events and utilize dormitory resources available to them",
         "Collaborated with the house coordinator and other managers to create and run dormitory activities"
       ],
+      image: uPennImage,
     },
   ],
   education: [
@@ -85,6 +90,7 @@ export const siteConfig = {
         "Expected December 2027",
         "The Data Science Institute Scholarship ($25,000)",
       ],
+      logo: uChicagoImage,
     },
     {
       school: "University of Pennsylvania",
@@ -92,9 +98,9 @@ export const siteConfig = {
       dateRange: "2019",
       achievements: [
         "Dean's List - May 2019",
-        "Built 10+ portfolio projects",
-        "Specialized in React and Node.js",
+        "Completed minors in Mathematics and Fine Arts",
       ],
+      logo: uPennImage,
     },
   ],
 };
