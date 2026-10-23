@@ -23,6 +23,7 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
             <div class="relative">
               {siteConfig.experience.map((exp, index) => {
                 const image = (exp as { image?: ImageMetadata }).image;
+                const logo = (exp as { logo?: ImageMetadata }).logo;
 
                 return (
                 <div class="relative mb-12 last:mb-0">
@@ -53,6 +54,14 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
                         />
                         <div class="absolute inset-0 -z-10 bg-linear-to-t from-gray-950/95 via-gray-950/80 to-gray-950/50" />
                       </>
+                    )}
+                    {logo && !image && (
+                      <Image
+                        src={logo}
+                        alt=""
+                        width={400}
+                        class="pointer-events-none absolute right-4 sm:right-6 top-1/2 -z-10 h-24 sm:h-32 md:h-40 w-auto max-w-[50%] -translate-y-1/2 object-contain opacity-10 grayscale transition-all duration-300 group-hover:opacity-20 group-hover:grayscale-0"
+                      />
                     )}
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                       <div>
