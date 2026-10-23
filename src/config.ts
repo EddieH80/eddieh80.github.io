@@ -1,5 +1,7 @@
 import profileImage from "./assets/profile.jpg";
 import pathTracerImage from "./assets/path-tracer.png";
+import toonHorseImage from "./assets/toon-horse.png";
+import tibetanMonasteryImage from "./assets/tibetan-monastery.jpg";
 import daoTFTImage from "./assets/dao-tft.png";
 import fabricClusteringImage from "./assets/fabric-composition-clustering.png";
 import miniMinecraftImage from "./assets/mini-minecraft.png";
@@ -42,6 +44,24 @@ export const siteConfig = {
       skills: ["C++", "OpenGL"],
       tags: ["Computer Graphics"],
       image: pathTracerImage,
+    },
+    {
+      name: "Procedural Toon Horse Generator",
+      description:
+        "Used signed distance functions and raymarching to create a movable horse model that is shaded using toon shading and noise functions. Incorporated randomness to generate differently shaded horses in different poses.",
+      link: "https://eddieh80.github.io/final-project/",
+      skills: ["C++", "WebGL"],
+      tags: ["Computer Graphics"],
+      image: toonHorseImage
+    },
+    {
+      name: "Procedural Tibetan Monastery Generator",
+      description:
+        "Used Houdini and L-System code to parametrize generation of structures inspired by Buddhist Tibetan Monasteries.",
+      link: "https://github.com/EddieH80/dmd_senior_project",
+      skills: ["Houdini"],
+      tags: ["Computer Graphics"],
+      image: tibetanMonasteryImage,
     },
     {
       name: "Dao TFT",
