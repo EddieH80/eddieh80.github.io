@@ -19,9 +19,11 @@ export const siteConfig = {
     github: "https://github.com/EddieH80",
   },
   aboutMe:
-    "Thanks for stopping by! My name is Eddie and I'm currently a graduate student in the University of Chicago's Master's in Applied Data Science program. " +
+    "Thanks for stopping by :) my name is Eddie and I'm currently a graduate student at the University of Chicago's Master's in Applied Data Science program. " +
     "I have interests in agentic AI workflows, computer graphics, competitive e-sports, rock-climbing, and running.",
   skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "CI/CD"],
+  // Number of projects shown before the "Show more" button
+  maxProjectsShown: 5,
   projects: [
     {
       name: "Clothing Brand Product Composition Data Analysis",
@@ -29,6 +31,7 @@ export const siteConfig = {
         "Built a data pipeline scraping fabric composition data from public API endpoints across 26 clothing brands with Asian cultural influence. Performed K-means clustering and random forest regression to get insights into product composition and price prediction",
       link: "https://github.com/EddieH80/fabric-composition-clustering",
       skills: ["Python", "Machine Learning", "Web Scraping"],
+      tags: ["Data Science"],
       image: fabricClusteringImage,
     },
     {
@@ -37,6 +40,7 @@ export const siteConfig = {
         "Implemented a path tracer following pbr-book.org for rendering 3-D scenes using global illumination and aperture setting simulation.",
       link: "https://github.com/EddieH80/pathtracer",
       skills: ["C++", "OpenGL"],
+      tags: ["Computer Graphics"],
       image: pathTracerImage,
     },
     {
@@ -45,6 +49,7 @@ export const siteConfig = {
         "Built a website for the online competitive game Teamfight Tactics (TFT) that allows players to enter information of their in-game status and receive proper recommendations for gameplay decisions.",
       link: "https://dao-tft.vercel.app/",
       skills: ["TypeScript", "React", "ETL", "AI-assisted Development"],
+      tags: ["Web Development"],
       image: daoTFTImage,
     },
     {
@@ -53,6 +58,7 @@ export const siteConfig = {
         "Collaborated in a team of three to recreate core features of the game Minecraft. Developed key features such as procedural terrain generation, L-system rivers, procedurally placed assets, and additional customized biomes.",
       link: "https://vimeo.com/489007178?share=copy&fl=sv&fe=ci",
       skills: ["C++", "Procedural Noise Functions", "L-Systems"],
+      tags: ["Computer Graphics"],
       image: miniMinecraftImage,
     },
   ],
