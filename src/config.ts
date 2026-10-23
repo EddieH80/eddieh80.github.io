@@ -16,7 +16,7 @@ export const siteConfig = {
     github: "https://github.com/EddieH80",
   },
   aboutMe:
-    "Hello, thanks for stopping by! My name is Eddie and I'm currently a graduate student at the University of Chicago studying Applied Data Science." +  
+    "Hello, thanks for stopping by! My name is Eddie and I'm currently a graduate student at the University of Chicago studying Applied Data Science. " +
     "I have interests in agentic AI workflows, computer graphics, competitive e-sports, rock-climbing, and running.",
   skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "CI/CD"],
   projects: [
@@ -31,7 +31,7 @@ export const siteConfig = {
     {
       name: "Monte Carlo Path Tracer",
       description:
-        "Implemented a path tracer following pbr-book.org for for rendering 3-D scenes using global illumination and aperture setting simulation.",
+        "Implemented a path tracer following pbr-book.org for rendering 3-D scenes using global illumination and aperture setting simulation.",
       link: "https://github.com/EddieH80/pathtracer",
       skills: ["C++", "OpenGL"],
       image: pathTracerImage,
