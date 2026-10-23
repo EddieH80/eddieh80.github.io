@@ -24,6 +24,18 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
               {siteConfig.education.map((edu) => {
                 const image = (edu as { image?: ImageMetadata }).image;
                 const logo = (edu as { logo?: ImageMetadata }).logo;
+                const { startDate, endDate, expected } = edu as {
+                  startDate?: string;
+                  endDate?: string;
+                  expected?: boolean;
+                };
+                const dates = [
+                  startDate && { label: "Started", value: startDate },
+                  endDate && {
+                    label: expected ? "Expected" : "Graduated",
+                    value: endDate,
+                  },
+                ].filter(Boolean) as { label: string; value: string }[];
 
                 return (
                 <div
@@ -64,11 +76,30 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
                         {edu.school}
                       </p>
                     </div>
-                    <span
-                      class={`text-xs sm:text-sm mt-2 sm:mt-0 ${image ? "text-gray-300" : "text-gray-500"}`}
-                    >
-                      {edu.dateRange}
-                    </span>
+                    {dates.length > 0 ? (
+                      <dl class="grid grid-cols-[auto_auto] justify-start sm:justify-end gap-x-3 gap-y-1 items-baseline mt-2 sm:mt-0 shrink-0">
+                        {dates.map(({ label, value }) => (
+                          <>
+                            <dt
+                              class={`text-[10px] sm:text-xs font-semibold uppercase tracking-wider ${image ? "text-white/60" : "text-gray-400"}`}
+                            >
+                              {label}
+                            </dt>
+                            <dd
+                              class={`text-xs sm:text-sm font-medium sm:text-right ${image ? "text-white" : "text-gray-700"}`}
+                            >
+                              {value}
+                            </dd>
+                          </>
+                        ))}
+                      </dl>
+                    ) : (
+                      <span
+                        class={`text-xs sm:text-sm mt-2 sm:mt-0 ${image ? "text-gray-300" : "text-gray-500"}`}
+                      >
+                        {(edu as { dateRange?: string }).dateRange}
+                      </span>
+                    )}
                   </div>
 
                   <ul class="space-y-2">
