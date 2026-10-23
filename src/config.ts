@@ -5,7 +5,7 @@ import fabricClusteringImage from "./assets/fabric-composition-clustering.png";
 import miniMinecraftImage from "./assets/mini-minecraft.png";
 import uChicagoImage from "./assets/uchicago.webp";
 import uPennImage from "./assets/upenn.jpg";
-import interSystemsImage from "./assets/intersystems.avif";
+import interSystemsImage from "./assets/intersystems.png";
 
 export const siteConfig = {
   profileImage,
@@ -85,22 +85,22 @@ export const siteConfig = {
     {
       school: "University of Chicago",
       degree: "Master of Science (MS) in Applied Data Science",
-      dateRange: "September 2026 - Present",
-      achievements: [
-        "Expected December 2027",
-        "The Data Science Institute Scholarship ($25,000)",
-      ],
-      logo: uChicagoImage,
+      startDate: "Sep 2026",
+      endDate: "Dec 2027",
+      expected: true,
+      achievements: ["The Data Science Institute Scholarship ($25,000)"],
+      image: uChicagoImage,
     },
     {
       school: "University of Pennsylvania",
       degree: "Bachelor of Science in Engineering (BSE) in Computer Graphics",
-      dateRange: "2019",
+      startDate: "Aug 2018",
+      endDate: "May 2022",
       achievements: [
         "Dean's List - May 2019",
         "Completed minors in Mathematics and Fine Arts",
       ],
-      logo: uPennImage,
+      image: uPennImage,
     },
   ],
 };
