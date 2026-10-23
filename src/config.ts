@@ -1,4 +1,7 @@
+import profileImage from "./assets/profile.jpg";
+
 export const siteConfig = {
+  profileImage,
   name: "Eddie Huang",
   title: "Applied Data Science @ UChicago",
   description: "Portfolio website of Eddie Huang",
