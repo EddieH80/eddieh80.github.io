@@ -3,9 +3,9 @@ import pathTracerImage from "./assets/path-tracer.png";
 import daoTFTImage from "./assets/dao-tft.png";
 import fabricClusteringImage from "./assets/fabric-composition-clustering.png";
 import miniMinecraftImage from "./assets/mini-minecraft.png";
-import uChicagoImage from "./assets/uchicago.webp";
-import uPennImage from "./assets/upenn.jpg";
-import interSystemsImage from "./assets/intersystems.png";
+import uChicagoImage from "./assets/uchicago.png";
+import uPennImage from "./assets/upenn.png";
+import interSystemsImage from "./assets/intersystems.jpg";
 
 export const siteConfig = {
   profileImage,
