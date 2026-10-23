@@ -2,11 +2,20 @@
 import { Image } from "astro:assets";
 import { siteConfig } from "../config";
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+const maxShown =
+  (siteConfig as { maxProjectsShown?: number }).maxProjectsShown ?? 5;
+const getTags = (project: object) => (project as { tags?: string[] }).tags ?? [];
+const projectTags = [...new Set(siteConfig.projects.flatMap(getTags))];
 ---
 
 {
   hasProjects && (
-    <section id="projects" class="p-8 sm:p-12 md:p-16 lg:p-24">
+    <section
+      id="projects"
+      class="p-8 sm:p-12 md:p-16 lg:p-24"
+      data-max-shown={maxShown}
+      style={`--accent-color: ${siteConfig.accentColor}`}
+    >
       <div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <div class="lg:col-span-4">
@@ -20,7 +29,26 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
           </div>
 
           <div class="lg:col-span-8">
-            <div class="space-y-8">
+            {projectTags.length > 0 && (
+              <div
+                class="flex flex-wrap gap-2 mb-8"
+                role="group"
+                aria-label="Filter projects by tag"
+              >
+                {["All", ...projectTags].map((tag) => (
+                  <button
+                    type="button"
+                    data-filter={tag === "All" ? "" : tag}
+                    aria-pressed={tag === "All" ? "true" : "false"}
+                    class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-gray-300 text-xs sm:text-sm font-medium text-gray-700 transition-colors duration-300 cursor-pointer hover:border-[var(--accent-color)] hover:text-[var(--accent-color)] aria-pressed:bg-[var(--accent-color)] aria-pressed:border-[var(--accent-color)] aria-pressed:text-white"
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            <div id="project-list" class="flex flex-col gap-8">
               {siteConfig.projects.map((project, index) => {
                 const Component = project.link ? "a" : "div";
                 const linkProps = project.link
@@ -33,7 +61,11 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                 const image = (project as { image?: ImageMetadata }).image;
 
                 return (
-                  <div class="group relative">
+                  <div
+                    class="group relative"
+                    data-project
+                    data-tags={JSON.stringify(getTags(project))}
+                  >
                     <Component
                       {...linkProps}
                       class={`block relative isolate overflow-hidden p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl border transition-all duration-300 ${
@@ -85,7 +117,7 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                             class={`text-sm font-mono ${image ? "text-white/70" : ""}`}
                             style={image ? undefined : { color: siteConfig.accentColor }}
                           >
-                            0{index + 1}
+                            {String(index + 1).padStart(2, "0")}
                           </span>
                           <h3
                             class={`text-xl sm:text-2xl font-bold mt-1 ${image ? "text-white" : "text-gray-900"}`}
@@ -119,9 +151,96 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                 );
               })}
             </div>
+
+            <button
+              type="button"
+              data-project-toggle
+              aria-expanded="false"
+              aria-controls="project-list"
+              hidden
+              class="mt-8 mx-auto flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-300 text-sm font-medium text-gray-700 transition-colors duration-300 cursor-pointer hover:border-[var(--accent-color)] hover:text-[var(--accent-color)] aria-expanded:[&>svg]:rotate-180"
+            >
+              <span data-toggle-label>Show more projects</span>
+              <svg
+                class="w-4 h-4 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 9l6 6 6-6"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
     </section>
   )
 }
+
+<script>
+  const section = document.getElementById("projects");
+
+  if (section) {
+    const maxShown = Number(section.dataset.maxShown);
+    const items = [...section.querySelectorAll<HTMLElement>("[data-project]")];
+    const filters = [
+      ...section.querySelectorAll<HTMLButtonElement>("[data-filter]"),
+    ];
+    const toggle = section.querySelector<HTMLButtonElement>(
+      "[data-project-toggle]",
+    );
+    const toggleLabel = toggle?.querySelector("[data-toggle-label]");
+
+    let activeTag = "";
+    let expanded = false;
+
+    // Show only projects matching the active tag, capped at maxShown unless
+    // the list is expanded. Projects are all visible without JavaScript.
+    const render = () => {
+      const matches = items.filter(
+        (item) =>
+          !activeTag ||
+          (JSON.parse(item.dataset.tags ?? "[]") as string[]).includes(
+            activeTag,
+          ),
+      );
+      items.forEach((item) => (item.hidden = true));
+      matches.forEach((item, i) => (item.hidden = !expanded && i >= maxShown));
+
+      const extra = matches.length - maxShown;
+      if (toggle && toggleLabel) {
+        toggle.hidden = extra <= 0;
+        if (toggle.hidden) return;
+        toggle.setAttribute("aria-expanded", String(expanded));
+        toggleLabel.textContent = expanded
+          ? "Show fewer projects"
+          : `Show ${extra} more project${extra === 1 ? "" : "s"}`;
+      }
+    };
+
+    filters.forEach((button) =>
+      button.addEventListener("click", () => {
+        activeTag = button.dataset.filter ?? "";
+        expanded = false;
+        filters.forEach((b) =>
+          b.setAttribute("aria-pressed", String(b === button)),
+        );
+        render();
+      }),
+    );
+
+    toggle?.addEventListener("click", () => {
+      expanded = !expanded;
+      render();
+      if (!expanded) toggle.scrollIntoView({ block: "nearest" });
+    });
+
+    render();
+  }
+</script>

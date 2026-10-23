@@ -59,6 +59,7 @@ The `src/config.ts` exports a `siteConfig` object with these sections:
 - Social links: email, linkedin, twitter, github (all optional)
 - aboutMe: string
 - skills: string[]
-- projects: array of {name, description, link, skills, image?}
+- maxProjectsShown: number of projects shown before the "Show more" toggle (default 5)
+- projects: array of {name, description, link, skills, tags?, image?} (tags drive the filter buttons)
 - experience: array of {company, title, dateRange, bullets, image?, logo?}
 - education: array of {school, degree, startDate, endDate, expected?, achievements, image?, logo?} (`dateRange` still works as a fallback)
