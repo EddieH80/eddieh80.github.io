@@ -8,6 +8,9 @@ import miniMinecraftImage from "./assets/mini-minecraft.png";
 import uChicagoImage from "./assets/uchicago.png";
 import uPennImage from "./assets/upenn.png";
 import interSystemsImage from "./assets/intersystems.jpg";
+import youtubeAnalysisImage from "./assets/youtube-analysis.png";
+import rolldownTrainerImage from "./assets/rolldown-trainer.png";
+
 
 export const siteConfig = {
   profileImage,
@@ -39,6 +42,15 @@ export const siteConfig = {
       image: fabricClusteringImage,
     },
     {
+      name: "Dao TFT",
+      description:
+        "Built a website for the online competitive game Teamfight Tactics (TFT) that allows players to enter information of their in-game status and receive proper recommendations for gameplay decisions.",
+      link: "https://dao-tft.vercel.app/",
+      skills: ["TypeScript", "React", "ETL"],
+      tags: ["Web Development"],
+      image: daoTFTImage,
+    },
+    {
       name: "Monte Carlo Path Tracer",
       description:
         "Implemented a path tracer following pbr-book.org for rendering 3-D scenes using global illumination and aperture setting simulation.",
@@ -46,6 +58,15 @@ export const siteConfig = {
       skills: ["C++", "OpenGL"],
       tags: ["Computer Graphics"],
       image: pathTracerImage,
+    },
+    {
+      name: "TFT Rolldown Trainer",
+      description:
+        "Created a web-based practice tool environment for players of the game Teamfight Tactics (TFT) to exercise the rolldown mechanic.",
+      link: "https://eddieh80.github.io/tft-rolldown-app/",
+      skills: ["HTML", "CSS", "JavaScript"],
+      tags: ["Web Development"],
+      image: rolldownTrainerImage,
     },
     {
       name: "Procedural Toon Horse Generator",
@@ -66,21 +87,20 @@ export const siteConfig = {
       image: tibetanMonasteryImage,
     },
     {
-      name: "Dao TFT",
-      description:
-        "Built a website for the online competitive game Teamfight Tactics (TFT) that allows players to enter information of their in-game status and receive proper recommendations for gameplay decisions.",
-      link: "https://dao-tft.vercel.app/",
-      skills: ["TypeScript", "React", "ETL", "AI-assisted Development"],
-      tags: ["Web Development"],
-      image: daoTFTImage,
-    },
-    {
       name: "Mini Minecraft",
       description:
         "Collaborated in a team of three to recreate core features of the game Minecraft. Developed key features such as procedural terrain generation, L-system rivers, procedurally placed assets, and additional customized biomes.",
       link: "https://vimeo.com/489007178?share=copy&fl=sv&fe=ci",
       skills: ["C++", "Procedural Noise Functions", "L-Systems"],
       tags: ["Computer Graphics"],
+      image: miniMinecraftImage,
+    },
+    {
+      name: "YouTube Video Data Analysis",
+      description: "Worked in a team of two to analyze a trending YouTube video dataset to determine similarities of trending videos among different countries and identify features important for videos to trend in various video categories.",
+      link: "https://colab.research.google.com/drive/13VedlC1Lxt6D0H9HMBCcMIhrlP0AJqyY",
+      skills: ["Big Data Analytics", "CNN", "Linear Regression"],
+      tags: ["Data Science"],
       image: miniMinecraftImage,
     },
   ],
