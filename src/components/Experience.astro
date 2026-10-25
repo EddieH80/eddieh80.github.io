@@ -33,11 +33,18 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
                   >
                     {image && (
                       <>
+                        {/* Blurred fill behind the full, uncropped image */}
                         <Image
                           src={image}
                           alt=""
                           width={1200}
-                          class="absolute inset-0 -z-10 size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          class="absolute inset-0 -z-10 size-full object-cover scale-110 blur-2xl"
+                        />
+                        <Image
+                          src={image}
+                          alt=""
+                          width={1200}
+                          class="absolute inset-y-0 left-1/2 -translate-x-1/2 -z-10 h-full w-auto max-w-none mask-x-from-75% mask-y-from-75% transition-transform duration-500 group-hover:scale-105"
                         />
                         <div class="absolute inset-0 -z-10 bg-linear-to-t from-gray-950/95 via-gray-950/80 to-gray-950/50" />
                       </>
