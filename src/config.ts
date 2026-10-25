@@ -30,7 +30,7 @@ export const siteConfig = {
     "I have interests in agentic AI workflows, computer graphics, competitive e-sports, rock-climbing, and running.",
   skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "CI/CD"],
   // Number of projects shown before the "Show more" button
-  maxProjectsShown: 6,
+  maxProjectsShown: 4,
   projects: [
     {
       name: "Clothing Brand Product Composition Data Analysis",
