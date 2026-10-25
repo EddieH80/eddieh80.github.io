@@ -56,7 +56,7 @@ When modifying components:
 
 The `src/config.ts` exports a `siteConfig` object with these sections:
 - Basic info: name, title, description, accentColor
-- Social links: email, linkedin, twitter, github (all optional)
+- Social links: email, linkedin, twitter, github, resume (all optional; resume is a URL/path to a PDF, e.g. `/resume.pdf` in `public/`)
 - aboutMe: string
 - skills: string[]
 - maxProjectsShown: number of projects shown before the "Show more" toggle (default 5)

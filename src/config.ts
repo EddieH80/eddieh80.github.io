@@ -19,6 +19,8 @@ export const siteConfig = {
     email: "eddieh@uchicago.edu",
     linkedin: "https://linkedin.com/in/eddiehuang8045",
     github: "https://github.com/EddieH80",
+    // Place your PDF at public/resume.pdf
+    resume: "/resume.pdf",
   },
   aboutMe:
     "Thanks for stopping by :) my name is Eddie and I'm currently a graduate student at the University of Chicago's Master's in Applied Data Science program. " +
