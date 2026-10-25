@@ -8,8 +8,8 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
   hasExperience && (
     <section id="experience" class="p-8 sm:p-12 md:p-16 lg:p-24">
       <div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
+        <div>
+          <div>
             <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
               Experience
             </h2>
@@ -19,26 +19,13 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
             />
           </div>
 
-          <div class="lg:col-span-8">
-            <div class="relative">
+          <div>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 items-start gap-6 lg:gap-8">
               {siteConfig.experience.map((exp, index) => {
                 const image = (exp as { image?: ImageMetadata }).image;
                 const logo = (exp as { logo?: ImageMetadata }).logo;
 
                 return (
-                <div class="relative mb-12 last:mb-0">
-                  {/* Timeline dot at top of card */}
-                  <div
-                    class="absolute left-1/2 -top-2 w-4 h-4 bg-white border-2 rounded-full -translate-x-1/2 z-20 transition-all duration-300"
-                    style={`border-color: ${siteConfig.accentColor}; background-color: ${siteConfig.accentColor}`}
-                  />
-
-                  {/* Connecting line below card */}
-                  {index < siteConfig.experience.length - 1 && (
-                    <div class="absolute left-1/2 bottom-0 w-0.5 h-12 bg-gray-300 -translate-x-1/2 translate-y-full z-10" />
-                  )}
-
-                  {/* Experience card */}
                   <div
                     class={`group relative isolate overflow-hidden rounded-lg shadow-sm border p-4 sm:p-5 md:p-6 hover:shadow-md transition-shadow duration-300 ${
                       image ? "bg-gray-900 border-gray-800" : "bg-white border-gray-100"
@@ -63,43 +50,58 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
                         class="pointer-events-none absolute right-4 sm:right-6 top-1/2 -z-10 h-24 sm:h-32 md:h-40 w-auto max-w-[50%] -translate-y-1/2 object-contain opacity-10 grayscale transition-all duration-300 group-hover:opacity-20 group-hover:grayscale-0"
                       />
                     )}
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                      <div>
-                        <h3
-                          class={`text-lg sm:text-xl font-semibold ${image ? "text-white" : "text-gray-900"}`}
-                        >
-                          {exp.title}
-                        </h3>
-                        <p
-                          class={`text-base sm:text-lg ${image ? "text-white/80" : ""}`}
-                          style={image ? undefined : `color: ${siteConfig.accentColor}`}
-                        >
-                          {exp.company}
-                        </p>
-                      </div>
+                    <div class="mb-4">
                       <span
-                        class={`text-xs sm:text-sm mt-2 sm:mt-0 ${image ? "text-gray-300" : "text-gray-500"}`}
+                        class={`text-xs sm:text-sm ${image ? "text-gray-300" : "text-gray-500"}`}
                       >
                         {exp.dateRange}
                       </span>
+                      <p
+                        class={`mt-1 text-base sm:text-lg ${image ? "text-white/80" : ""}`}
+                        style={image ? undefined : `color: ${siteConfig.accentColor}`}
+                      >
+                        {exp.company}
+                      </p>
+                      <h3
+                        class={`text-lg sm:text-xl font-semibold line-clamp-2 min-h-[2lh] ${image ? "text-white" : "text-gray-900"}`}
+                      >
+                        {exp.title}
+                      </h3>
                     </div>
 
-                    <ul class="space-y-2">
-                      {exp.bullets.map((bullet) => (
-                        <li class="flex items-start">
-                          <span
-                            class={`inline-block w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0 ${image ? "bg-white/60" : "bg-gray-400"}`}
-                          />
-                          <span
-                            class={`text-sm sm:text-base ${image ? "text-gray-200" : "text-gray-600"}`}
-                          >
-                            {bullet}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div>
+                      <div
+                        id={`experience-bullets-${index}`}
+                        class="h-[6lh] overflow-hidden text-sm sm:text-base leading-relaxed data-[expanded=true]:h-auto data-[truncated=true]:mask-b-from-40%"
+                      >
+                        <ul class="space-y-2">
+                          {exp.bullets.map((bullet) => (
+                            <li class="flex items-start">
+                              <span
+                                class={`inline-block w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0 ${image ? "bg-white/60" : "bg-gray-400"}`}
+                              />
+                              <span
+                                class={`text-sm sm:text-base ${image ? "text-gray-200" : "text-gray-600"}`}
+                              >
+                                {bullet}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <button
+                        type="button"
+                        data-expand-toggle
+                        aria-expanded="false"
+                        aria-controls={`experience-bullets-${index}`}
+                        class={`invisible mt-2 text-sm font-medium underline underline-offset-4 cursor-pointer transition-colors duration-300 ${
+                          image ? "text-white hover:text-gray-300" : "text-gray-900 hover:text-[var(--accent-color)]"
+                        }`}
+                      >
+                        Read more
+                      </button>
+                    </div>
                   </div>
-                </div>
                 );
               })}
             </div>
@@ -109,3 +111,7 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
     </section>
   )
 }
+
+<script>
+  import "../scripts/expandable";
+</script>

@@ -26,6 +26,7 @@ npm run preview   # Preview production build
 The project follows a component-based architecture with all customization centralized in `src/config.ts`:
 
 - **Components** (`src/components/`): Individual Astro components for each section (Hero, About, Projects, Experience, Education, Header, Footer)
+- **Scripts** (`src/scripts/`): Shared client scripts; `expandable.ts` powers the "Read more" toggles on project, experience, and education cards (a `data-expand-toggle` button whose `aria-controls` points at the clamped content)
 - **Main Layout** (`src/pages/index.astro`): Single-page layout that imports all components
 - **Configuration** (`src/config.ts`): Single source of truth for all content and customization
 

@@ -8,8 +8,8 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
   hasEducation && (
     <section id="education" class="p-8 sm:p-12 md:p-16 lg:p-24">
       <div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
+        <div>
+          <div>
             <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
               Education
             </h2>
@@ -19,9 +19,9 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
             />
           </div>
 
-          <div class="lg:col-span-8">
-            <div class="space-y-8">
-              {siteConfig.education.map((edu) => {
+          <div>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 items-start gap-6 lg:gap-8">
+              {siteConfig.education.map((edu, index) => {
                 const image = (edu as { image?: ImageMetadata }).image;
                 const logo = (edu as { logo?: ImageMetadata }).logo;
                 const { startDate, endDate, expected } = edu as {
@@ -62,60 +62,76 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
                       class="pointer-events-none absolute right-4 sm:right-6 top-1/2 -z-10 h-24 sm:h-32 md:h-40 w-auto max-w-[50%] -translate-y-1/2 object-contain opacity-10 grayscale transition-all duration-300 group-hover:opacity-20 group-hover:grayscale-0"
                     />
                   )}
-                  <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
-                    <div>
-                      <h3
-                        class={`text-lg sm:text-xl font-semibold ${image ? "text-white" : "text-gray-900"}`}
-                      >
-                        {edu.degree}
-                      </h3>
-                      <p
-                        class={`text-base sm:text-lg ${image ? "text-white/80" : ""}`}
-                        style={image ? undefined : `color: ${siteConfig.accentColor}`}
-                      >
-                        {edu.school}
-                      </p>
-                    </div>
+                  <div class="mb-4">
                     {dates.length > 0 ? (
-                      <dl class="grid grid-cols-[auto_auto] justify-start sm:justify-end gap-x-3 gap-y-1 items-baseline mt-2 sm:mt-0 shrink-0">
+                      <dl class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
                         {dates.map(({ label, value }) => (
-                          <>
+                          <div class="flex items-baseline gap-2">
                             <dt
                               class={`text-[10px] sm:text-xs font-semibold uppercase tracking-wider ${image ? "text-white/60" : "text-gray-400"}`}
                             >
                               {label}
                             </dt>
                             <dd
-                              class={`text-xs sm:text-sm font-medium sm:text-right ${image ? "text-white" : "text-gray-700"}`}
+                              class={`text-xs sm:text-sm font-medium ${image ? "text-white" : "text-gray-700"}`}
                             >
                               {value}
                             </dd>
-                          </>
+                          </div>
                         ))}
                       </dl>
                     ) : (
                       <span
-                        class={`text-xs sm:text-sm mt-2 sm:mt-0 ${image ? "text-gray-300" : "text-gray-500"}`}
+                        class={`text-xs sm:text-sm ${image ? "text-gray-300" : "text-gray-500"}`}
                       >
                         {(edu as { dateRange?: string }).dateRange}
                       </span>
                     )}
+                    <p
+                      class={`mt-1 text-base sm:text-lg ${image ? "text-white/80" : ""}`}
+                      style={image ? undefined : `color: ${siteConfig.accentColor}`}
+                    >
+                      {edu.school}
+                    </p>
+                    <h3
+                      class={`text-lg sm:text-xl font-semibold line-clamp-2 min-h-[2lh] ${image ? "text-white" : "text-gray-900"}`}
+                    >
+                      {edu.degree}
+                    </h3>
                   </div>
 
-                  <ul class="space-y-2">
-                    {edu.achievements.map((achievement) => (
-                      <li class="flex items-start">
-                        <span
-                          class={`inline-block w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0 ${image ? "bg-white/60" : "bg-gray-400"}`}
-                        />
-                        <span
-                          class={`text-sm sm:text-base ${image ? "text-gray-200" : "text-gray-600"}`}
-                        >
-                          {achievement}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div>
+                    <div
+                      id={`education-achievements-${index}`}
+                      class="h-[6lh] overflow-hidden text-sm sm:text-base leading-relaxed data-[expanded=true]:h-auto data-[truncated=true]:mask-b-from-40%"
+                    >
+                      <ul class="space-y-2">
+                        {edu.achievements.map((achievement) => (
+                          <li class="flex items-start">
+                            <span
+                              class={`inline-block w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0 ${image ? "bg-white/60" : "bg-gray-400"}`}
+                            />
+                            <span
+                              class={`text-sm sm:text-base ${image ? "text-gray-200" : "text-gray-600"}`}
+                            >
+                              {achievement}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <button
+                      type="button"
+                      data-expand-toggle
+                      aria-expanded="false"
+                      aria-controls={`education-achievements-${index}`}
+                      class={`invisible mt-2 text-sm font-medium underline underline-offset-4 cursor-pointer transition-colors duration-300 ${
+                        image ? "text-white hover:text-gray-300" : "text-gray-900 hover:text-[var(--accent-color)]"
+                      }`}
+                    >
+                      Read more
+                    </button>
+                  </div>
                 </div>
                 );
               })}
@@ -126,3 +142,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     </section>
   )
 }
+
+<script>
+  import "../scripts/expandable";
+</script>

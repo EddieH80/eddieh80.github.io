@@ -129,14 +129,13 @@ const projectTags = [...new Set(siteConfig.projects.flatMap(getTags))];
                         <div>
                           <p
                             id={`project-description-${index}`}
-                            data-description
                             class={`text-sm sm:text-base leading-relaxed line-clamp-3 min-h-[3lh] data-[expanded=true]:line-clamp-none ${image ? "text-gray-200" : "text-gray-600"}`}
                           >
                             {project.description}
                           </p>
                           <button
                             type="button"
-                            data-description-toggle
+                            data-expand-toggle
                             aria-expanded="false"
                             aria-controls={`project-description-${index}`}
                             class={`invisible relative z-20 mt-2 text-sm font-medium underline underline-offset-4 cursor-pointer transition-colors duration-300 ${
@@ -199,6 +198,8 @@ const projectTags = [...new Set(siteConfig.projects.flatMap(getTags))];
 }
 
 <script>
+  import { updateExpandToggles } from "../scripts/expandable";
+
   const section = document.getElementById("projects");
 
   if (section) {
@@ -211,38 +212,6 @@ const projectTags = [...new Set(siteConfig.projects.flatMap(getTags))];
       "[data-project-toggle]",
     );
     const toggleLabel = toggle?.querySelector("[data-toggle-label]");
-
-    const descriptionToggles = [
-      ...section.querySelectorAll<HTMLButtonElement>(
-        "[data-description-toggle]",
-      ),
-    ];
-
-    // Show "Read more" only on visible, collapsed descriptions that are
-    // actually truncated by the line clamp. The button keeps its space when
-    // invisible so every collapsed card is the same height.
-    const updateDescriptionToggles = () => {
-      descriptionToggles.forEach((button) => {
-        if (button.getAttribute("aria-expanded") === "true") return;
-        const description = button.previousElementSibling as HTMLElement;
-        button.classList.toggle(
-          "invisible",
-          description.scrollHeight <= description.clientHeight + 1,
-        );
-      });
-    };
-
-    descriptionToggles.forEach((button) =>
-      button.addEventListener("click", () => {
-        const description = button.previousElementSibling as HTMLElement;
-        const expanded = button.getAttribute("aria-expanded") !== "true";
-        button.setAttribute("aria-expanded", String(expanded));
-        description.dataset.expanded = String(expanded);
-        button.textContent = expanded ? "Show less" : "Read more";
-      }),
-    );
-
-    window.addEventListener("resize", updateDescriptionToggles);
 
     let activeTag = "";
     let expanded = false;
@@ -259,7 +228,7 @@ const projectTags = [...new Set(siteConfig.projects.flatMap(getTags))];
       );
       items.forEach((item) => (item.hidden = true));
       matches.forEach((item, i) => (item.hidden = !expanded && i >= maxShown));
-      updateDescriptionToggles();
+      updateExpandToggles();
 
       const extra = matches.length - maxShown;
       if (toggle && toggleLabel) {
