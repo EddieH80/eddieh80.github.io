@@ -62,5 +62,5 @@ The `src/config.ts` exports a `siteConfig` object with these sections:
 - skills: string[]
 - maxProjectsShown: number of projects shown before the "Show more" toggle (falls back to 5 if unset; set to 4 to fill the 2×2 grid)
 - projects: array of {name, description, link, skills, tags?, image?} (tags drive the filter buttons)
-- experience: array of {company, title, dateRange, bullets, image?, logo?}
-- education: array of {school, degree, startDate, endDate, expected?, achievements, image?, logo?} (`dateRange` still works as a fallback)
+- experience: array of {company, title, dateRange, bullets, image?, imageBackground?, logo?} (`imageBackground` is a CSS color filling the card around the uncropped image; without it a blurred copy of the image is used)
+- education: array of {school, degree, startDate, endDate, expected?, achievements, image?, imageBackground?, logo?} (`dateRange` still works as a fallback)

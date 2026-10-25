@@ -24,6 +24,8 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
               {siteConfig.experience.map((exp, index) => {
                 const image = (exp as { image?: ImageMetadata }).image;
                 const logo = (exp as { logo?: ImageMetadata }).logo;
+                const imageBackground = (exp as { imageBackground?: string })
+                  .imageBackground;
 
                 return (
                   <div
@@ -33,13 +35,21 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
                   >
                     {image && (
                       <>
-                        {/* Blurred fill behind the full, uncropped image */}
-                        <Image
-                          src={image}
-                          alt=""
-                          width={1200}
-                          class="absolute inset-0 -z-10 size-full object-cover scale-110 blur-2xl"
-                        />
+                        {/* Fill behind the full, uncropped image: the logo's background
+                            color if set, otherwise a blurred copy of the image */}
+                        {imageBackground ? (
+                          <div
+                            class="absolute inset-0 -z-10"
+                            style={`background-color: ${imageBackground}`}
+                          />
+                        ) : (
+                          <Image
+                            src={image}
+                            alt=""
+                            width={1200}
+                            class="absolute inset-0 -z-10 size-full object-cover scale-110 blur-2xl"
+                          />
+                        )}
                         <Image
                           src={image}
                           alt=""

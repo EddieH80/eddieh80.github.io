@@ -117,6 +117,7 @@ export const siteConfig = {
         "Documented and maintained 10+ Confluence pages about internal testing frameworks to improve cross-team communication and reduce new-hire onboarding time"
       ],
       image: interSystemsImage,
+      imageBackground: "#f8f8f8",
     },
     {
       company: "University of Pennsylvania",
@@ -127,6 +128,7 @@ export const siteConfig = {
         "Collaborated with the house coordinator and other managers to create and run dormitory activities"
       ],
       image: uPennImage,
+      imageBackground: "#081858",
     },
   ],
   education: [
@@ -138,6 +140,7 @@ export const siteConfig = {
       expected: true,
       achievements: ["The Data Science Institute Scholarship ($25,000)"],
       image: uChicagoImage,
+      imageBackground: "#780808",
     },
     {
       school: "University of Pennsylvania",
@@ -149,6 +152,7 @@ export const siteConfig = {
         "Completed minors in Mathematics and Fine Arts",
       ],
       image: uPennImage,
+      imageBackground: "#081858",
     },
   ],
 };
