@@ -168,6 +168,18 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
               </a>
             )
           }
+          {
+            siteConfig.social.resume && (
+              <a
+                href={siteConfig.social.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+              >
+                Resume
+              </a>
+            )
+          }
         </nav>
         <p class="text-sm text-gray-500">
           © {new Date().getFullYear()}
