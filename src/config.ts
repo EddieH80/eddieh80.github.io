@@ -101,7 +101,7 @@ export const siteConfig = {
       link: "https://colab.research.google.com/drive/13VedlC1Lxt6D0H9HMBCcMIhrlP0AJqyY",
       skills: ["Big Data Analytics", "CNN", "Linear Regression"],
       tags: ["Data Science"],
-      image: miniMinecraftImage,
+      image: youtubeAnalysisImage,
     },
   ],
   experience: [
