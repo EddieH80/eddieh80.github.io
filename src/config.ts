@@ -28,7 +28,7 @@ export const siteConfig = {
   aboutMe:
     "Thanks for stopping by :) my name is Eddie and I'm currently a graduate student at the University of Chicago's Master's in Applied Data Science program. " +
     "I have interests in agentic AI workflows, computer graphics, competitive e-sports, rock-climbing, and running.",
-  skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "CI/CD"],
+  skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "CI/CD", "Git", "Perforce", "Machine Learning"],
   // Number of projects shown before the "Show more" button
   maxProjectsShown: 4,
   projects: [
