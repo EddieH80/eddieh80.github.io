@@ -20,7 +20,7 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
           </div>
 
           <div>
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 items-start gap-6 lg:gap-8">
+            <div class="mt-8 grid grid-cols-1 gap-6 lg:gap-8">
               {siteConfig.experience.map((exp, index) => {
                 const image = (exp as { image?: ImageMetadata }).image;
                 const logo = (exp as { logo?: ImageMetadata }).logo;
@@ -63,7 +63,7 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
                         {exp.company}
                       </p>
                       <h3
-                        class={`text-lg sm:text-xl font-semibold line-clamp-2 min-h-[2lh] ${image ? "text-white" : "text-gray-900"}`}
+                        class={`text-lg sm:text-xl font-semibold ${image ? "text-white" : "text-gray-900"}`}
                       >
                         {exp.title}
                       </h3>
@@ -72,7 +72,7 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
                     <div>
                       <div
                         id={`experience-bullets-${index}`}
-                        class="h-[6lh] overflow-hidden text-sm sm:text-base leading-relaxed data-[expanded=true]:h-auto data-[truncated=true]:mask-b-from-40%"
+                        class="max-h-[6lh] overflow-hidden text-sm sm:text-base leading-relaxed data-[expanded=true]:max-h-none data-[truncated=true]:mask-b-from-40%"
                       >
                         <ul class="space-y-2">
                           {exp.bullets.map((bullet) => (
@@ -94,7 +94,7 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
                         data-expand-toggle
                         aria-expanded="false"
                         aria-controls={`experience-bullets-${index}`}
-                        class={`invisible mt-2 text-sm font-medium underline underline-offset-4 cursor-pointer transition-colors duration-300 ${
+                        class={`invisible [&.invisible]:hidden mt-2 text-sm font-medium underline underline-offset-4 cursor-pointer transition-colors duration-300 ${
                           image ? "text-white hover:text-gray-300" : "text-gray-900 hover:text-[var(--accent-color)]"
                         }`}
                       >
