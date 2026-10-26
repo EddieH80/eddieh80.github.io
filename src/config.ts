@@ -34,8 +34,8 @@ export const siteConfig = {
     resume: "/resume.pdf",
   },
   aboutMe:
-    "Thanks for stopping by :) I’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I’m focused on building data-driven solutions to help people make guided decisions in a world full of data. " + 
-    "I have a background in computer graphics from my undergraduate degree at the University of Pennsylvania, as well as experience working with healthcare data and software from my past role at InterSystems. " +
+    "Thanks for stopping by :)\nI’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I’m focused on building data-driven solutions to help people make guided decisions in a world full of data. " + 
+    "I have a background in computer graphics from my undergraduate degree at the University of Pennsylvania, as well as experience working with healthcare data and software from my past role at InterSystems.\n" +
     "Outside of school, I have interests in bouldering, fashion, running, and competitive e-sports. Feel free to reach out!",
   skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "OpenGL", "Machine Learning", "CI/CD", "Git", "Perforce"],
   // Number of projects shown before the "Show more" button
@@ -44,7 +44,7 @@ export const siteConfig = {
     {
       name: "Clothing Brand Product Composition Data Analysis",
       description:
-        "Pipeline integrating clothing product data to compare materials and pricing across brands",
+        "Pipeline integrating clothing product data to compare materials and pricing across brands.",
       link: "https://github.com/EddieH80/fabric-composition-clustering",
       skills: ["Python", "scikit-learn", "pandas", "API Integration", "K-Means Clustering", "Random Forest"],
       tags: ["Data Science"],
