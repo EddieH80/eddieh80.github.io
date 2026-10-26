@@ -2,8 +2,16 @@
 import { Image } from "astro:assets";
 import { siteConfig } from "../config";
 
-const profileImage = (siteConfig as { profileImage?: ImageMetadata })
-  .profileImage;
+// profileImages (a list) takes precedence; a single profileImage still works
+const { profileImages, profileImage } = siteConfig as {
+  profileImages?: ImageMetadata[];
+  profileImage?: ImageMetadata;
+};
+const photos = profileImages?.length
+  ? profileImages
+  : profileImage
+    ? [profileImage]
+    : [];
 ---
 
 <div
@@ -156,14 +164,75 @@ const profileImage = (siteConfig as { profileImage?: ImageMetadata })
       </p>
     </div>
     {
-      profileImage && (
-        <Image
-          src={profileImage}
-          alt={siteConfig.name}
-          width={960}
-          loading="eager"
-          class="size-60 sm:size-72 md:size-96 lg:size-120 shrink-0 rounded-full object-cover ring-4 ring-[var(--accent-color)] ring-offset-4 animate-fade-in animation-delay-400"
-        />
+      photos.length > 0 && (
+        <div
+          data-photo-carousel
+          class="relative size-60 sm:size-72 md:size-96 lg:size-120 shrink-0 animate-fade-in animation-delay-400"
+        >
+          <div class="relative size-full overflow-hidden rounded-full ring-4 ring-[var(--accent-color)] ring-offset-4">
+            {photos.map((photo, index) => (
+              <Image
+                src={photo}
+                alt={photos.length > 1 ? `${siteConfig.name}, photo ${index + 1} of ${photos.length}` : siteConfig.name}
+                width={960}
+                loading={index === 0 ? "eager" : "lazy"}
+                data-photo
+                aria-hidden={index === 0 ? undefined : "true"}
+                class={`absolute inset-0 size-full object-cover transition-opacity duration-500 ${
+                  index === 0 ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
+          </div>
+          {photos.length > 1 && (
+            <>
+              <button
+                type="button"
+                data-photo-prev
+                aria-label="Previous photo"
+                class="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 flex size-10 sm:size-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-md transition-colors duration-300 hover:text-[var(--accent-color)] cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-6 w-6"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M15 6l-6 6l6 6" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                data-photo-next
+                aria-label="Next photo"
+                class="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 flex size-10 sm:size-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-md transition-colors duration-300 hover:text-[var(--accent-color)] cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-6 w-6"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M9 6l6 6l-6 6" />
+                </svg>
+              </button>
+            </>
+          )}
+        </div>
       )
     }
   </div>
@@ -325,6 +394,30 @@ const profileImage = (siteConfig as { profileImage?: ImageMetadata })
     }
   </div>
 </div>
+
+<script>
+  // Cycle the profile photos with the prev/next arrows (wraps around)
+  document.querySelectorAll<HTMLElement>("[data-photo-carousel]").forEach((carousel) => {
+    const photos = [...carousel.querySelectorAll<HTMLElement>("[data-photo]")];
+    let current = 0;
+    const show = (index: number) => {
+      current = (index + photos.length) % photos.length;
+      photos.forEach((photo, i) => {
+        const active = i === current;
+        photo.classList.toggle("opacity-100", active);
+        photo.classList.toggle("opacity-0", !active);
+        if (active) photo.removeAttribute("aria-hidden");
+        else photo.setAttribute("aria-hidden", "true");
+      });
+    };
+    carousel
+      .querySelector("[data-photo-prev]")
+      ?.addEventListener("click", () => show(current - 1));
+    carousel
+      .querySelector("[data-photo-next]")
+      ?.addEventListener("click", () => show(current + 1));
+  });
+</script>
 
 <style>
   @keyframes fadeIn {

@@ -56,6 +56,7 @@ When modifying components:
 ## Configuration Structure
 
 The `src/config.ts` exports a `siteConfig` object with these sections:
+- profileImages: ImageMetadata[] shown in the hero; with more than one, left/right arrows cycle through them (a single `profileImage` still works as a fallback)
 - Basic info: name, title, description, accentColor
 - Social links: email, linkedin, twitter, github, resume (all optional; resume is a URL/path to a PDF, e.g. `/resume.pdf` in `public/`)
 - aboutMe: string
