@@ -39,7 +39,7 @@ export const siteConfig = {
     resume: "/resume.pdf",
   },
   aboutMe:
-    "Thanks for stopping by :)\n\nI’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I’m focused on building data-driven solutions to help people make guided decisions in a world full of data. " + 
+    "Thanks for stopping by :)\n\nI’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I focus on turning data into tools to help people make better decisions. " + 
     "I have a background in computer graphics from my undergraduate degree at the University of Pennsylvania, as well as experience working with healthcare data and software from my past role at InterSystems.\n\n" +
     "Outside of school and work, I have interests in bouldering, fashion, running, and competitive e-sports. Feel free to reach out!",
   skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "HTML/CSS", "OpenGL", "Machine Learning", "CI/CD", "Git", "Perforce"],
