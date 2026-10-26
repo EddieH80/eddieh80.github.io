@@ -26,8 +26,8 @@ export const siteConfig = {
     resume: "/resume.pdf",
   },
   aboutMe:
-    "Thanks for stopping by :) my name is Eddie and I'm currently a graduate student at the University of Chicago's Master's in Applied Data Science program. " +
-    "I have interests in agentic AI workflows, computer graphics, competitive e-sports, rock-climbing, and running.",
+    "Thanks for stopping by :) I’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I’m focused on machine learning, data visualization, and building models that turn messy, real-world data into decisions people can actually use. Lately I’ve been especially drawn to agentic AI workflows and how they can automate and scale analytical work. I’m also fascinated by computer graphics, which scratches the same itch of turning numbers into something you can see." +
+    "Outside of school, I enjoy bouldering, running, and competitive e-sports.",
   skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "CI/CD", "Git", "Perforce", "Machine Learning"],
   // Number of projects shown before the "Show more" button
   maxProjectsShown: 4,
@@ -35,73 +35,75 @@ export const siteConfig = {
     {
       name: "Clothing Brand Product Composition Data Analysis",
       description:
-        "Built a data pipeline scraping fabric composition data from public API endpoints across 26 clothing brands with Asian cultural influence. Performed K-means clustering and random forest regression to get insights into product composition and price prediction",
+        "Data pipeline integrating clothing product information to gain insights on material breakdowns across brands and pricing strategy.",
       link: "https://github.com/EddieH80/fabric-composition-clustering",
-      skills: ["Python", "Machine Learning", "Web Scraping"],
+      skills: ["Python", "scikit-learn", "pandas", "API Integration", "K-Means Clustering", "Random Forest"],
       tags: ["Data Science"],
       image: fabricClusteringImage,
     },
     {
+      name: "Mini Minecraft",
+      description:
+        "Recreation of core gameplay mechanics of the game Minecraft. " +
+        "Completed in a team of three.",
+      link: "https://vimeo.com/489007178?share=copy&fl=sv&fe=ci",
+      skills: ["C++", "OpenGL", "Procedural Generation", "Noise Functions", "L-Systems"],
+      tags: ["Computer Graphics"],
+      image: miniMinecraftImage,
+    },
+    {
+      name: "YouTube Video Data Analysis",
+      description: "Analysis of a 2021 trending YouTube video dataset to determine what features made videos trend." + 
+      "Completed in a team of two.",
+      link: "https://colab.research.google.com/drive/13VedlC1Lxt6D0H9HMBCcMIhrlP0AJqyY",
+      skills: ["Python", "PyTorch", "scikit-learn", "CNN", "PCA", "Regularized Regression"],
+      tags: ["Data Science"],
+      image: youtubeAnalysisImage,
+    },
+    {
       name: "Dao TFT",
       description:
-        "Built a website for the online competitive game Teamfight Tactics (TFT) that allows players to enter information of their in-game status and receive proper recommendations for gameplay decisions.",
+        "Decision engine for Teamfight Tactics(TFT) that helps players make in-game decisions based on their current game state.",
       link: "https://dao-tft.vercel.app/",
-      skills: ["TypeScript", "React", "ETL"],
+      skills: ["TypeScript", "React", "Next.js", "Optimization", "Data Pipeline", "CI/CD"],
       tags: ["Web Development"],
       image: daoTFTImage,
     },
     {
+      name: "Procedural Tibetan Monastery Generator",
+      description:
+        "Procedural generator for Tibetan Buddhist monastery-inspired structures, built as a Houdini Digital Asset to be used in games or films.",
+      link: "https://github.com/EddieH80/dmd_senior_project",
+      skills: ["Houdini", "VEX", "Procedural Generation", "L-Systems", "Point Clouds"],
+      tags: ["Computer Graphics"],
+      image: tibetanMonasteryImage,
+    },
+    {
       name: "Monte Carlo Path Tracer",
       description:
-        "Implemented a path tracer following pbr-book.org for rendering 3-D scenes using global illumination and aperture setting simulation.",
+        "Monte Carlo path tracer in C++ built by extending a basic ray tracer, following Physically Based Rendering: From Theory to Implementation.",
       link: "https://github.com/EddieH80/pathtracer",
-      skills: ["C++", "OpenGL"],
+      skills: ["C++", "Path Tracing", "Linear Algebra", "Importance Sampling", "Monte Carlo Integration", "BVH"],
       tags: ["Computer Graphics"],
       image: pathTracerImage,
     },
     {
       name: "TFT Rolldown Trainer",
       description:
-        "Created a web-based practice tool environment for players of the game Teamfight Tactics (TFT) to exercise the rolldown mechanic.",
+        "Web-based practice tool environment for the game Teamfight Tactics (TFT) to help players exercise the rolldown mechanic.",
       link: "https://eddieh80.github.io/tft-rolldown-app/",
-      skills: ["HTML", "CSS", "JavaScript"],
+      skills: ["JavaScript", "HTML/CSS", "Probability Simulation", "Product Requirements"],
       tags: ["Web Development"],
       image: rolldownTrainerImage,
     },
     {
       name: "Procedural Toon Horse Generator",
       description:
-        "Used signed distance functions and raymarching to create a movable horse model that is shaded using toon shading and noise functions. Incorporated randomness to generate differently shaded horses in different poses.",
+        "Procedural horse generator rendered in WebGL, inspired by the ink paintings of Xu Beihong.",
       link: "https://eddieh80.github.io/final-project/",
-      skills: ["C++", "WebGL"],
+      skills: ["TypeScript", "WebGL", "Raymarching", "SDFs", "Non-Photorealistic Rendering"],
       tags: ["Computer Graphics"],
       image: toonHorseImage
-    },
-    {
-      name: "Procedural Tibetan Monastery Generator",
-      description:
-        "Used Houdini and L-System code to parametrize generation of structures inspired by Buddhist Tibetan Monasteries.",
-      link: "https://github.com/EddieH80/dmd_senior_project",
-      skills: ["Houdini"],
-      tags: ["Computer Graphics"],
-      image: tibetanMonasteryImage,
-    },
-    {
-      name: "Mini Minecraft",
-      description:
-        "Collaborated in a team of three to recreate core features of the game Minecraft. Developed key features such as procedural terrain generation, L-system rivers, procedurally placed assets, and additional customized biomes.",
-      link: "https://vimeo.com/489007178?share=copy&fl=sv&fe=ci",
-      skills: ["C++", "Procedural Noise Functions", "L-Systems"],
-      tags: ["Computer Graphics"],
-      image: miniMinecraftImage,
-    },
-    {
-      name: "YouTube Video Data Analysis",
-      description: "Worked in a team of two to analyze a trending YouTube video dataset to determine similarities of trending videos among different countries and identify features important for videos to trend in various video categories.",
-      link: "https://colab.research.google.com/drive/13VedlC1Lxt6D0H9HMBCcMIhrlP0AJqyY",
-      skills: ["Big Data Analytics", "CNN", "Linear Regression"],
-      tags: ["Data Science"],
-      image: youtubeAnalysisImage,
     },
   ],
   experience: [
