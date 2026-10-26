@@ -1,15 +1,23 @@
 import profileImage from "./assets/profile.jpg";
+
+// Projects
 import pathTracerImage from "./assets/path-tracer.png";
 import toonHorseImage from "./assets/toon-horse.png";
 import tibetanMonasteryImage from "./assets/tibetan-monastery.jpg";
 import daoTFTImage from "./assets/dao-tft.png";
 import fabricClusteringImage from "./assets/fabric-composition-clustering.png";
 import miniMinecraftImage from "./assets/mini-minecraft.png";
-import uChicagoImage from "./assets/uchicago.png";
-import uPennImage from "./assets/upenn.png";
-import interSystemsImage from "./assets/intersystems.jpg";
 import youtubeAnalysisImage from "./assets/youtube-analysis.png";
 import rolldownTrainerImage from "./assets/rolldown-trainer.png";
+
+// Work
+import interSystemsImage from "./assets/intersystems.jpg";
+import amazonImage from "./assets/amazon.jpg"
+
+// Education
+import uChicagoImage from "./assets/uchicago.png";
+import uPennImage from "./assets/upenn.png";
+
 
 
 export const siteConfig = {
@@ -26,16 +34,17 @@ export const siteConfig = {
     resume: "/resume.pdf",
   },
   aboutMe:
-    "Thanks for stopping by :) I’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I’m focused on machine learning, data visualization, and building models that turn messy, real-world data into decisions people can actually use. Lately I’ve been especially drawn to agentic AI workflows and how they can automate and scale analytical work. I’m also fascinated by computer graphics, which scratches the same itch of turning numbers into something you can see." +
-    "Outside of school, I enjoy bouldering, running, and competitive e-sports.",
-  skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "CI/CD", "Git", "Perforce", "Machine Learning"],
+    "Thanks for stopping by :) I’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I’m focused on building data-driven solutions to help people make guided decisions in a world full of data. " + 
+    "I have a background in computer graphics from my undergraduate degree at the University of Pennsylvania, as well as experience working with healthcare data and software from my past role at InterSystems. " +
+    "Outside of school, I have interests in bouldering, fashion, running, and competitive e-sports. Feel free to reach out!",
+  skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "OpenGL", "Machine Learning", "CI/CD", "Git", "Perforce"],
   // Number of projects shown before the "Show more" button
   maxProjectsShown: 4,
   projects: [
     {
       name: "Clothing Brand Product Composition Data Analysis",
       description:
-        "Data pipeline integrating clothing product information to gain insights on material breakdowns across brands and pricing strategy.",
+        "Pipeline integrating clothing product data to compare materials and pricing across brands",
       link: "https://github.com/EddieH80/fabric-composition-clustering",
       skills: ["Python", "scikit-learn", "pandas", "API Integration", "K-Means Clustering", "Random Forest"],
       tags: ["Data Science"],
@@ -44,7 +53,7 @@ export const siteConfig = {
     {
       name: "Mini Minecraft",
       description:
-        "Recreation of core gameplay mechanics of the game Minecraft. " +
+        "Recreation of core procedural generation and player mechanics from the game Minecraft. " +
         "Completed in a team of three.",
       link: "https://vimeo.com/489007178?share=copy&fl=sv&fe=ci",
       skills: ["C++", "OpenGL", "Procedural Generation", "Noise Functions", "L-Systems"],
@@ -52,22 +61,31 @@ export const siteConfig = {
       image: miniMinecraftImage,
     },
     {
+      name: "Procedural Toon Horse Generator",
+      description:
+        "Procedural horse generator rendered in WebGL, inspired by the ink paintings of Xu Beihong.",
+      link: "https://eddieh80.github.io/final-project/",
+      skills: ["TypeScript", "WebGL", "Raymarching", "SDFs", "Non-Photorealistic Rendering"],
+      tags: ["Computer Graphics"],
+      image: toonHorseImage
+    },
+    {
+      name: "Dao TFT",
+      description:
+        "Decision engine for the game Teamfight Tactics (TFT) to help players make in-game decisions based on their current game state.",
+      link: "https://dao-tft.vercel.app/",
+      skills: ["TypeScript", "React", "Next.js", "Optimization", "Data Pipeline", "CI/CD"],
+      tags: ["Web Development"],
+      image: daoTFTImage,
+    },
+    {
       name: "YouTube Video Data Analysis",
-      description: "Analysis of a 2021 trending YouTube video dataset to determine what features made videos trend." + 
+      description: "Analysis of a 2021 trending YouTube video dataset to determine what features made videos trend. " + 
       "Completed in a team of two.",
       link: "https://colab.research.google.com/drive/13VedlC1Lxt6D0H9HMBCcMIhrlP0AJqyY",
       skills: ["Python", "PyTorch", "scikit-learn", "CNN", "PCA", "Regularized Regression"],
       tags: ["Data Science"],
       image: youtubeAnalysisImage,
-    },
-    {
-      name: "Dao TFT",
-      description:
-        "Decision engine for Teamfight Tactics(TFT) that helps players make in-game decisions based on their current game state.",
-      link: "https://dao-tft.vercel.app/",
-      skills: ["TypeScript", "React", "Next.js", "Optimization", "Data Pipeline", "CI/CD"],
-      tags: ["Web Development"],
-      image: daoTFTImage,
     },
     {
       name: "Procedural Tibetan Monastery Generator",
@@ -96,15 +114,6 @@ export const siteConfig = {
       tags: ["Web Development"],
       image: rolldownTrainerImage,
     },
-    {
-      name: "Procedural Toon Horse Generator",
-      description:
-        "Procedural horse generator rendered in WebGL, inspired by the ink paintings of Xu Beihong.",
-      link: "https://eddieh80.github.io/final-project/",
-      skills: ["TypeScript", "WebGL", "Raymarching", "SDFs", "Non-Photorealistic Rendering"],
-      tags: ["Computer Graphics"],
-      image: toonHorseImage
-    },
   ],
   experience: [
     {
@@ -126,11 +135,22 @@ export const siteConfig = {
       title: "House Manager",
       dateRange: "Aug 2019 - May 2020",
       bullets: [
-        "Helped students sign up for house events and utilize dormitory resources available to them",
-        "Collaborated with the house coordinator and other managers to create and run dormitory activities"
+        "Served at the front-desk in the house office, registering residents for events and connecting them with dormitory resources and services",
+        "Collaborated with the house coordinator and other managers to plan and run community events for students"
       ],
       image: uPennImage,
       imageBackground: "#081858",
+    },
+    {
+      company: "Amazon",
+      title: "Fulfillment Associate",
+      dateRange: "Jun 2019 - Jul 2019",
+      bullets: [
+        "Picked and prepared customer orders for packaging, exceeding expected quotas for a majority of days",
+        "Cross-trained in various departments during peak hours, managing tote and product distribution for multiple floors"
+      ],
+      image: amazonImage,
+      imageBackground: "#ff6201",
     },
   ],
   education: [
@@ -150,8 +170,8 @@ export const siteConfig = {
       startDate: "Aug 2018",
       endDate: "May 2022",
       achievements: [
-        "Dean's List - May 2019",
         "Completed minors in Mathematics and Fine Arts",
+        "Dean's List - May 2019",
       ],
       image: uPennImage,
       imageBackground: "#081858",
