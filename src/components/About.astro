@@ -19,9 +19,13 @@ import { siteConfig } from "../config";
       </div>
 
       <div class="mt-8 space-y-8">
-        <p class="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600 whitespace-pre-line">
-          {siteConfig.aboutMe}
-        </p>
+        <div class="space-y-6 text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600">
+          {
+            siteConfig.aboutMe.split(/\n\s*\n/).map((paragraph) => (
+              <p class="whitespace-pre-line">{paragraph.trim()}</p>
+            ))
+          }
+        </div>
 
         <div class="pt-4">
           <div class="flex flex-wrap gap-3">
