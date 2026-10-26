@@ -36,7 +36,7 @@ export const siteConfig = {
   aboutMe:
     "Thanks for stopping by :)\n\nI’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I’m focused on building data-driven solutions to help people make guided decisions in a world full of data. " + 
     "I have a background in computer graphics from my undergraduate degree at the University of Pennsylvania, as well as experience working with healthcare data and software from my past role at InterSystems.\n\n" +
-    "Outside of school, I have interests in bouldering, fashion, running, and competitive e-sports. Feel free to reach out!",
+    "Outside of school and work, I have interests in bouldering, fashion, running, and competitive e-sports. Feel free to reach out!",
   skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "HTML/CSS", "OpenGL", "Machine Learning", "CI/CD", "Git", "Perforce"],
   // Number of projects shown before the "Show more" button
   maxProjectsShown: 4,
@@ -44,7 +44,7 @@ export const siteConfig = {
     {
       name: "Clothing Brand Product Composition Data Analysis",
       description:
-        "Pipeline integrating clothing product data to compare materials and pricing across brands.",
+        "Pipeline integrating and analyzing clothing product data to compare materials and pricing across brands.",
       link: "https://github.com/EddieH80/fabric-composition-clustering",
       skills: ["Python", "scikit-learn", "pandas", "API Integration", "K-Means Clustering", "Random Forest"],
       tags: ["Data Science"],
@@ -55,7 +55,7 @@ export const siteConfig = {
       description:
         "Recreation of core procedural generation and player mechanics from the game Minecraft. " +
         "Completed in a team of three.",
-      link: "https://vimeo.com/489007178?share=copy&fl=sv&fe=ci",
+      link: "https://vimeo.com/489007178?share=copy&fl=cl&fe=ci#t=49.996",
       skills: ["C++", "OpenGL", "Procedural Generation", "Noise Functions", "L-Systems"],
       tags: ["Computer Graphics"],
       image: miniMinecraftImage,
