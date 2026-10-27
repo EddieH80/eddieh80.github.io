@@ -335,9 +335,8 @@ const photos = profileImages?.length
                 loading={index === 0 ? "eager" : "lazy"}
                 data-photo
                 aria-hidden={index === 0 ? undefined : "true"}
-                class={`absolute inset-0 size-full object-cover transition-opacity duration-500 ${
-                  index === 0 ? "opacity-100" : "opacity-0"
-                }`}
+                class="absolute inset-0 size-full object-cover"
+                style={index === 0 ? undefined : "translate: 100% 0"}
               />
             ))}
           </div>
@@ -403,32 +402,42 @@ const photos = profileImages?.length
     if (photos.length < 2) return;
     let current = 0;
     let timer: number | undefined;
-    const show = (index: number) => {
-      current = (index + photos.length) % photos.length;
-      photos.forEach((photo, i) => {
-        const active = i === current;
-        photo.classList.toggle("opacity-100", active);
-        photo.classList.toggle("opacity-0", !active);
-        if (active) photo.removeAttribute("aria-hidden");
-        else photo.setAttribute("aria-hidden", "true");
-      });
+    // "Next" enters from the right and pushes the current photo out to the
+    // left; "previous" runs the other way
+    const show = (index: number, direction: 1 | -1) => {
+      const next = (index + photos.length) % photos.length;
+      if (next === current) return;
+      const incoming = photos[next];
+      const outgoing = photos[current];
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      incoming.style.transition = "none";
+      incoming.style.translate = `${100 * direction}% 0`;
+      incoming.getBoundingClientRect(); // commit the start position before animating
+      const transition = reduceMotion ? "none" : "translate 1000ms ease-in-out";
+      incoming.style.transition = transition;
+      outgoing.style.transition = transition;
+      incoming.style.translate = "0 0";
+      outgoing.style.translate = `${-100 * direction}% 0`;
+      incoming.removeAttribute("aria-hidden");
+      outgoing.setAttribute("aria-hidden", "true");
+      current = next;
     };
     // Restart the countdown after any change so a manual click gets a full 5s
     const restart = () => {
       window.clearInterval(timer);
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      timer = window.setInterval(() => show(current + 1), AUTOPLAY_MS);
+      timer = window.setInterval(() => show(current + 1, 1), AUTOPLAY_MS);
     };
     carousel
       .querySelector("[data-photo-prev]")
       ?.addEventListener("click", () => {
-        show(current - 1);
+        show(current - 1, -1);
         restart();
       });
     carousel
       .querySelector("[data-photo-next]")
       ?.addEventListener("click", () => {
-        show(current + 1);
+        show(current + 1, 1);
         restart();
       });
     restart();
