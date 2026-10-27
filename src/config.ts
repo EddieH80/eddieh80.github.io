@@ -14,8 +14,8 @@ import youtubeAnalysisImage from "./assets/youtube-analysis.png";
 import rolldownTrainerImage from "./assets/rolldown-trainer.png";
 
 // Work
-import interSystemsImage from "./assets/intersystems.jpg";
-import amazonImage from "./assets/amazon.jpg"
+import interSystemsImage from "./assets/intersystems.svg";
+import amazonImage from "./assets/amazon.svg"
 
 // Education
 import uChicagoImage from "./assets/uchicago.png";
