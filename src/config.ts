@@ -39,10 +39,10 @@ export const siteConfig = {
     resume: "/resume.pdf",
   },
   aboutMe:
-    "Thanks for stopping by :)\n\nI’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I focus on turning data into tools to help people make better decisions. " + 
-    "I have a background in computer graphics from my undergraduate degree at the University of Pennsylvania, as well as experience working with healthcare data and software from my past role at InterSystems.\n\n" +
+    "Thanks for stopping by :)\n\nI’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I focus on turning real-world data into tools that help people make better decisions. " + 
+    "I have a background in computer graphics from my undergraduate degree at the University of Pennsylvania, as well as experience working with electronic health record (EHR) data and healthcare interoperability software from my past role at InterSystems.\n\n" +
     "Outside of school and work, I have interests in bouldering, fashion, running, and competitive e-sports. Feel free to reach out!",
-  skills: ["Python", "AWS", "Docker", "C++", "JavaScript", "HTML/CSS", "OpenGL", "Machine Learning", "CI/CD", "Git", "Perforce"],
+  skills: ["Python", "SQL", "C++", "TypeScript", "JavaScript", "PyTorch", "scikit-learn", "pandas", "React", "OpenGL/WebGL", "GLSL", "Houdini", "AWS", "Docker", "CI/CD", "Git", "Perforce"],
   // Number of projects shown before the "Show more" button
   maxProjectsShown: 4,
   projects: [
@@ -68,7 +68,7 @@ export const siteConfig = {
     {
       name: "Procedural Toon Horse Generator",
       description:
-        "Procedural horse generator rendered in WebGL, inspired by the ink paintings of Xu Beihong.",
+        "WebGL non-photorealistic renderer for horses, inspired by the ink paintings of Xu Beihong.",
       link: "https://eddieh80.github.io/final-project/",
       skills: ["TypeScript", "WebGL", "Raymarching", "SDFs", "Non-Photorealistic Rendering"],
       tags: ["Computer Graphics"],
@@ -77,7 +77,7 @@ export const siteConfig = {
     {
       name: "Dao TFT",
       description:
-        "Decision engine for the game Teamfight Tactics (TFT) to help players make in-game decisions based on their current game state.",
+        "Decision engine for the game Teamfight Tactics (TFT) to help players make real-time decisions based on their current game state.",
       link: "https://dao-tft.vercel.app/",
       skills: ["TypeScript", "React", "Next.js", "Optimization", "Data Pipeline", "CI/CD"],
       tags: ["Web Development"],
@@ -85,7 +85,7 @@ export const siteConfig = {
     },
     {
       name: "YouTube Video Data Analysis",
-      description: "Analysis of a 2021 trending YouTube video dataset to determine what features made videos trend. " + 
+      description: "Analysis of a 2021 YouTube video dataset to determine what features made videos trend. " + 
       "Completed in a team of two.",
       link: "https://colab.research.google.com/drive/13VedlC1Lxt6D0H9HMBCcMIhrlP0AJqyY",
       skills: ["Python", "PyTorch", "scikit-learn", "CNN", "PCA", "Regularized Regression"],
@@ -93,22 +93,22 @@ export const siteConfig = {
       image: youtubeAnalysisImage,
     },
     {
-      name: "Procedural Tibetan Monastery Generator",
-      description:
-        "Procedural generator for Tibetan Buddhist monastery-inspired structures, built as a Houdini Digital Asset to be used in games or films.",
-      link: "https://github.com/EddieH80/dmd_senior_project",
-      skills: ["Houdini", "VEX", "Procedural Generation", "L-Systems", "Point Clouds"],
-      tags: ["Computer Graphics"],
-      image: tibetanMonasteryImage,
-    },
-    {
       name: "Monte Carlo Path Tracer",
       description:
-        "Monte Carlo path tracer in C++ built by extending a basic ray tracer, following Physically Based Rendering: From Theory to Implementation.",
+        "C++ renderer built by extending a basic ray tracer, following Physically Based Rendering: From Theory to Implementation. Simulates global illumination with importance sampling, specular reflection, and depth of field.",
       link: "https://github.com/EddieH80/pathtracer",
       skills: ["C++", "Path Tracing", "Linear Algebra", "Importance Sampling", "Monte Carlo Integration", "BVH"],
       tags: ["Computer Graphics"],
       image: pathTracerImage,
+    },
+    {
+      name: "Procedural Tibetan Monastery Generator",
+      description:
+        "Houdini Digital Asset that uses L-systems and VEX scripting to generate stylistically consistent variations of Tibetan Buddhist-inspired architecture for games and films.",
+      link: "https://github.com/EddieH80/dmd_senior_project",
+      skills: ["Houdini", "VEX", "Procedural Generation", "L-Systems", "Point Clouds"],
+      tags: ["Computer Graphics"],
+      image: tibetanMonasteryImage,
     },
     {
       name: "TFT Rolldown Trainer",
@@ -127,8 +127,8 @@ export const siteConfig = {
       dateRange: "July 2022 - February 2025",
       bullets: [
         "Validated the MVP release of Bulk FHIR data export from end to end, covering areas like asynchronous data transfer, OAuth2 authorization workflows, and REST API endpoints to ensure secure exchange of large clinical data",
-        "Built automated testing pipelines with Python scripts, relational databases, and email reports with test-result analytics to increase sprint cycle efficiency by 20%",
-        "Conducted HL7 FHIR conformance testing using tools like Inferno and Touchstone to help the platform reach ONC (g)(10) certification for standardized patient data access",
+        "Built automated testing pipelines with Python scripts, relational databases, and analytical email reports to increase sprint cycle efficiency by 20%",
+        "Conducted HL7 FHIR conformance testing using Inferno and Touchstone tools to the platform's ONC (g)(10) certification for standardized patient data access",
         "Developed upgrade tests for systems migrating from legacy storage to new data models to ensure data integrity",
         "Documented and maintained 10+ Confluence pages about internal testing frameworks to improve cross-team communication and reduce new-hire onboarding time"
       ],
@@ -151,8 +151,8 @@ export const siteConfig = {
       title: "Fulfillment Associate",
       dateRange: "Jun 2019 - Jul 2019",
       bullets: [
-        "Picked and prepared customer orders for packaging, exceeding expected quotas for a majority of days",
-        "Cross-trained in various departments during peak hours, managing tote and product distribution for multiple floors"
+        "Picked and prepared customer orders for packaging, exceeding expected quotas for 80% of days",
+        "Cross-trained in various departments during peak hours, managing product and tote distribution for multiple floors"
       ],
       image: amazonImage,
       imageBackground: "#ff6201",
@@ -175,8 +175,10 @@ export const siteConfig = {
       startDate: "Aug 2018",
       endDate: "May 2022",
       achievements: [
-        "Completed minors in Mathematics and Fine Arts",
-        "Dean's List - May 2019",
+        "Magna Cum Laude",
+        "Dean's List (May 2019)",
+        "Minors in Mathematics and Fine Arts",
+        "PennYo A Cappella, Penn Club Swimming",
       ],
       image: uPennImage,
       imageBackground: "#081858",
