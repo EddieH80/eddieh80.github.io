@@ -442,9 +442,12 @@ const photos = profileImages?.length
     // Restart the countdown after any change so a manual click gets a full 5s
     const restart = () => {
       window.clearInterval(timer);
+      if (document.hidden) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       timer = window.setInterval(() => show(current + 1, 1), AUTOPLAY_MS);
     };
+    // Pause while the tab is hidden; resume with a full 5s when it returns
+    document.addEventListener("visibilitychange", restart);
     carousel
       .querySelector("[data-photo-prev]")
       ?.addEventListener("click", () => {
