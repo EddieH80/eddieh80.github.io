@@ -396,10 +396,13 @@ const photos = profileImages?.length
 </div>
 
 <script>
-  // Cycle the profile photos with the prev/next arrows (wraps around)
+  // Cycle the profile photos every 5s and with the prev/next arrows (wraps around)
+  const AUTOPLAY_MS = 5000;
   document.querySelectorAll<HTMLElement>("[data-photo-carousel]").forEach((carousel) => {
     const photos = [...carousel.querySelectorAll<HTMLElement>("[data-photo]")];
+    if (photos.length < 2) return;
     let current = 0;
+    let timer: number | undefined;
     const show = (index: number) => {
       current = (index + photos.length) % photos.length;
       photos.forEach((photo, i) => {
@@ -410,12 +413,25 @@ const photos = profileImages?.length
         else photo.setAttribute("aria-hidden", "true");
       });
     };
+    // Restart the countdown after any change so a manual click gets a full 5s
+    const restart = () => {
+      window.clearInterval(timer);
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      timer = window.setInterval(() => show(current + 1), AUTOPLAY_MS);
+    };
     carousel
       .querySelector("[data-photo-prev]")
-      ?.addEventListener("click", () => show(current - 1));
+      ?.addEventListener("click", () => {
+        show(current - 1);
+        restart();
+      });
     carousel
       .querySelector("[data-photo-next]")
-      ?.addEventListener("click", () => show(current + 1));
+      ?.addEventListener("click", () => {
+        show(current + 1);
+        restart();
+      });
+    restart();
   });
 </script>
 
