@@ -397,23 +397,33 @@ const photos = profileImages?.length
 <script>
   // Cycle the profile photos every 5s and with the prev/next arrows (wraps around)
   const AUTOPLAY_MS = 5000;
+  const TRANSITION_MS = 1000;
   document.querySelectorAll<HTMLElement>("[data-photo-carousel]").forEach((carousel) => {
     const photos = [...carousel.querySelectorAll<HTMLElement>("[data-photo]")];
     if (photos.length < 2) return;
     let current = 0;
     let timer: number | undefined;
+    // Ignore navigation mid-slide; interrupting leaves gaps and stray photos
+    let animating = false;
     // "Next" enters from the right and pushes the current photo out to the
-    // left; "previous" runs the other way
+    // left; "previous" runs the other way. Returns whether it moved.
     const show = (index: number, direction: 1 | -1) => {
+      if (animating) return false;
       const next = (index + photos.length) % photos.length;
-      if (next === current) return;
+      if (next === current) return false;
       const incoming = photos[next];
       const outgoing = photos[current];
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      // Park every other photo off-screen so only two are ever in view
+      photos.forEach((photo) => {
+        if (photo === incoming || photo === outgoing) return;
+        photo.style.transition = "none";
+        photo.style.translate = "100% 0";
+      });
       incoming.style.transition = "none";
       incoming.style.translate = `${100 * direction}% 0`;
       incoming.getBoundingClientRect(); // commit the start position before animating
-      const transition = reduceMotion ? "none" : "translate 1000ms ease-in-out";
+      const transition = reduceMotion ? "none" : `translate ${TRANSITION_MS}ms ease-in-out`;
       incoming.style.transition = transition;
       outgoing.style.transition = transition;
       incoming.style.translate = "0 0";
@@ -421,6 +431,13 @@ const photos = profileImages?.length
       incoming.removeAttribute("aria-hidden");
       outgoing.setAttribute("aria-hidden", "true");
       current = next;
+      if (!reduceMotion) {
+        animating = true;
+        window.setTimeout(() => {
+          animating = false;
+        }, TRANSITION_MS);
+      }
+      return true;
     };
     // Restart the countdown after any change so a manual click gets a full 5s
     const restart = () => {
@@ -431,14 +448,12 @@ const photos = profileImages?.length
     carousel
       .querySelector("[data-photo-prev]")
       ?.addEventListener("click", () => {
-        show(current - 1, -1);
-        restart();
+        if (show(current - 1, -1)) restart();
       });
     carousel
       .querySelector("[data-photo-next]")
       ?.addEventListener("click", () => {
-        show(current + 1, 1);
-        restart();
+        if (show(current + 1, 1)) restart();
       });
     restart();
   });

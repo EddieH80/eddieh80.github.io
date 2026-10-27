@@ -2,6 +2,7 @@
 import snowImage from "./assets/snow.jpg";
 import climbingImage from "./assets/climbing.jpg";
 import tahoeImage from "./assets/tahoe.jpg";
+import challengerImage from "./assets/challenger.png";
 
 // Projects
 import pathTracerImage from "./assets/path-tracer.png";
@@ -26,7 +27,7 @@ import uPennImage from "./assets/upenn.png";
 export const siteConfig = {
   // Add more photos to src/assets, import them above, and list them here.
   // The left/right arrows appear when there is more than one.
-  profileImages: [snowImage, climbingImage, tahoeImage],
+  profileImages: [snowImage, climbingImage, tahoeImage, challengerImage],
   name: "Eddie Huang",
   title: "Applied Data Science @ UChicago\nCG @ UPenn\nQD Engineer @ InterSystems",
   description: "Portfolio website of Eddie Huang",
