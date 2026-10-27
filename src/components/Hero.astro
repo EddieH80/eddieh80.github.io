@@ -331,7 +331,7 @@ const photos = profileImages?.length
               <Image
                 src={photo}
                 alt={photos.length > 1 ? `${siteConfig.name}, photo ${index + 1} of ${photos.length}` : siteConfig.name}
-                width={960}
+                {...(photo.width >= photo.height ? { height: 960 } : { width: 960 })}
                 loading={index === 0 ? "eager" : "lazy"}
                 data-photo
                 aria-hidden={index === 0 ? undefined : "true"}
