@@ -42,7 +42,7 @@ export const siteConfig = {
   aboutMe:
     "Thanks for stopping by!\n\nI’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I focus on turning real-world data into tools that help people make better decisions. " + 
     "I have a background in computer graphics from my undergraduate degree at the University of Pennsylvania, as well as experience working with electronic health record (EHR) data and healthcare interoperability software from my past role at InterSystems.\n\n" +
-    "Outside of school and work, I have interests in bouldering, fashion, beatboxing, running, and competitive e-sports. Feel free to connect at the links above!",
+    "Outside of school and work, I have interests in bouldering, fashion, beatboxing, running, and competitive e-sports. Feel free to connect through the links above!",
   skills: ["Python", "SQL", "C++", "TypeScript", "JavaScript", "Claude Code", "PyTorch", "scikit-learn", "pandas", "React", "OpenGL/WebGL", "GLSL", "Houdini", "AWS", "Docker", "CI/CD", "Git", "Perforce"],
   // Number of projects shown before the "Show more" button
   maxProjectsShown: 4,
