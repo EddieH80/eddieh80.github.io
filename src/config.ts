@@ -31,24 +31,24 @@ export const siteConfig = {
   name: "Eddie Huang",
   title: "Applied Data Science @ UChicago\nCG @ UPenn\nQD Engineer @ InterSystems",
   description: "Portfolio website of Eddie Huang",
-  accentColor: "#1d4ed8",
+  accentColor: "#a8791a",
   social: {
     email: "eddieh@uchicago.edu",
     linkedin: "https://linkedin.com/in/eddiehuang8045",
     github: "https://github.com/EddieH80",
-    // Place your PDF at public/resume.pdf
+    // Resume located at public/resume.pdf
     resume: "/resume.pdf",
   },
   aboutMe:
-    "Thanks for stopping by :)\n\nI’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I focus on turning real-world data into tools that help people make better decisions. " + 
+    "Thanks for stopping by!\n\nI’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I focus on turning real-world data into tools that help people make better decisions. " + 
     "I have a background in computer graphics from my undergraduate degree at the University of Pennsylvania, as well as experience working with electronic health record (EHR) data and healthcare interoperability software from my past role at InterSystems.\n\n" +
-    "Outside of school and work, I have interests in bouldering, fashion, running, and competitive e-sports. Feel free to reach out!",
+    "Outside of school and work, I have interests in bouldering, fashion, beatboxing, running, and competitive e-sports. Feel free to reach out at the links above!",
   skills: ["Python", "SQL", "C++", "TypeScript", "JavaScript", "PyTorch", "scikit-learn", "pandas", "React", "OpenGL/WebGL", "GLSL", "Houdini", "AWS", "Docker", "CI/CD", "Git", "Perforce"],
   // Number of projects shown before the "Show more" button
   maxProjectsShown: 4,
   projects: [
     {
-      name: "Clothing Brand Product Composition Data Analysis",
+      name: "Clothing Product Data Analysis",
       description:
         "Pipeline integrating and analyzing clothing product data to compare materials and pricing across brands.",
       link: "https://github.com/EddieH80/fabric-composition-clustering",
@@ -78,7 +78,7 @@ export const siteConfig = {
     {
       name: "Dao TFT",
       description:
-        "Decision engine for the game Teamfight Tactics (TFT) to help players make real-time decisions based on their current game state.",
+        "Decision engine for the game Teamfight Tactics (TFT) to help players with real-time strategy based on their current game state.",
       link: "https://dao-tft.vercel.app/",
       skills: ["TypeScript", "React", "Next.js", "Optimization", "Data Pipeline", "CI/CD"],
       tags: ["Web Development"],
@@ -127,7 +127,7 @@ export const siteConfig = {
       title: "Quality Development Engineer",
       dateRange: "July 2022 - February 2025",
       bullets: [
-        "Validated the MVP release of Bulk FHIR data export from end to end, covering areas like asynchronous data transfer, OAuth2 authorization workflows, and REST API endpoints to ensure secure exchange of large clinical data",
+        "Validated the MVP release of Bulk FHIR data export from end to end, including asynchronous data transfer, OAuth2 authorization workflows, and REST API endpoints to ensure secure exchange of large clinical data",
         "Built automated testing pipelines with Python scripts, relational databases, and analytical email reports to increase sprint cycle efficiency by 20%",
         "Conducted HL7 FHIR conformance testing using Inferno and Touchstone tools to the platform's ONC (g)(10) certification for standardized patient data access",
         "Developed upgrade tests for systems migrating from legacy storage to new data models to ensure data integrity",
