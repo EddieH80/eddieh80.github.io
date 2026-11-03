@@ -166,7 +166,7 @@ export const siteConfig = {
       startDate: "Sep 2026",
       endDate: "Dec 2027",
       expected: true,
-      achievements: ["The Data Science Institute Scholarship ($25,000)"],
+      achievements: ["The Data Science Institute Scholarship"],
       image: uChicagoImage,
       imageBackground: "#780808",
     },
