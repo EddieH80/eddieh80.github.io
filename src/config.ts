@@ -125,7 +125,7 @@ export const siteConfig = {
     {
       company: "InterSystems",
       title: "Quality Development Engineer",
-      dateRange: "July 2022 - February 2025",
+      dateRange: "Jul 2022 - Feb 2025",
       bullets: [
         "Validated the MVP release of Bulk FHIR data export from end to end, including asynchronous data transfer, OAuth2 authorization workflows, and REST API endpoints to ensure secure exchange of large clinical data",
         "Built automated testing pipelines with Python scripts, relational databases, and analytical email reports to increase sprint cycle efficiency by 20%",
