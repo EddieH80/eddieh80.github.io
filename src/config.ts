@@ -37,7 +37,7 @@ export const siteConfig = {
     linkedin: "https://linkedin.com/in/eddiehuang8045",
     github: "https://github.com/EddieH80",
     // Resume located at public/resume.pdf
-    resume: "/resume.pdf",
+    resume: "/EddieHuang-Resume.pdf",
   },
   aboutMe:
     "Thanks for stopping by!\n\nI’m a graduate student in the University of Chicago’s Master’s in Applied Data Science program, where I focus on turning real-world data into tools that help people make better decisions. " + 
